@@ -1,0 +1,3 @@
+language: nodse_js
+node_js:
+  - "6"
