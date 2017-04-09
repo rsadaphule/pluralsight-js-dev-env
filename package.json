@@ -54,9 +54,6 @@
     "webpack-hot-middleware": "2.13.0",
     "webpack-md5-hash": "0.0.5",
     "whatwg-fetch": "^2.0.3"
-  },
-  "dependencies": {
-    "browser-logger": "^1.0.0",
-   
   }
+
 }
