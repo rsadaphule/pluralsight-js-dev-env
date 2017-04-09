@@ -1,5 +1,6 @@
 
-import {getUsers} from './api/userAPI';
+import {getUsers, deleteUser} from './api/userAPI';
+
 
 
 getUsers().then(result => {
@@ -8,7 +9,7 @@ getUsers().then(result => {
      result.forEach(user => {
 
       usersBody += `<tr>
-                        <td><a href="#" data-id="${user.id}">Delete</a></td>
+                        <td><a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>
                         <td>${user.id}</td>
                         <td>${user.firstName}</td>
                         <td>${user.lastName}</td>
@@ -18,6 +19,22 @@ getUsers().then(result => {
 
 
       global.document.getElementById('users').innerHTML = usersBody;
+
+      const deleteLinks = global.document.getElementsByClassName('deleteUser');
+      
+      Array.from(deleteLinks, link => {
+           link.onclick = function(event){
+                const element = event.target;
+                console.log('before prevent default'); // eslint-disable-line no-console
+                event.preventDefault();
+                console.log('after prevent default'); // eslint-disable-line no-console
+                console.log('USER ID ' + element.attributes["data-id"].value); // eslint-disable-line no-console
+                deleteUser(element.attributes["data-id"].value);
+                const row = element.parentNode.parentNode;
+                row.parentNode.removeChild(row);    
+           };
+        
+      });
 
  
 });
