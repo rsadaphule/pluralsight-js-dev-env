@@ -11,7 +11,7 @@ it('should pass', ()=> {
 });
 
 describe('index.html', () => {
-   it('should say h1 that say Users ', (done) => {
+   it('should say h1 that say users ', (done) => {
 
            const index = fs.readFileSync('./src/index.html', 'utf-8');
            jsdom.env(index, function(err, window){

@@ -19,5 +19,5 @@ function onSuccess(response)
 
 function onError(error)
 {
-  console.og(error);
+  console.log(error); // eslint-disable-line no-console
 }
